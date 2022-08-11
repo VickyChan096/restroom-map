@@ -4,57 +4,187 @@
 
 html,
 body {
-	height: 100%;
-	width: 100%;
+  height: 100%;
+  width: 100%;
 }
 
 #map {
-	z-index: 1;
-	width: 100%;
-	height: 100%;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
 }
 
 /* marker樣式 start */
 .marker-cluster-small {
-	background-color: rgba(181, 226, 140, 0.6);
+  background-color: rgba(181, 226, 140, 0.6);
 }
 
 .marker-cluster-small div {
-	background-color: rgba(110, 204, 57, 0.6);
+  background-color: rgba(110, 204, 57, 0.6);
 }
 
 .marker-cluster-medium {
-	background-color: rgba(241, 211, 87, 0.6);
+  background-color: rgba(241, 211, 87, 0.6);
 }
 
 .marker-cluster-medium div {
-	background-color: rgba(240, 194, 12, 0.6);
+  background-color: rgba(240, 194, 12, 0.6);
 }
 
 .marker-cluster-large {
-	background-color: rgba(253, 156, 115, 0.6);
+  background-color: rgba(253, 156, 115, 0.6);
 }
 
 .marker-cluster-large div {
-	background-color: rgba(241, 128, 23, 0.6);
+  background-color: rgba(241, 128, 23, 0.6);
 }
 
 .marker-cluster {
-	background-clip: padding-box;
-	border-radius: 20px;
+  background-clip: padding-box;
+  border-radius: 20px;
 }
 
 .marker-cluster div {
-	width: 30px;
-	height: 30px;
-	margin-left: 5px;
-	margin-top: 5px;
-	text-align: center;
-	border-radius: 15px;
-	font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+  margin-top: 5px;
+  text-align: center;
+  border-radius: 15px;
+  font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
 .marker-cluster span {
-	line-height: 30px;
+  line-height: 30px;
 }
+
 /* marker樣式 end */
+
+.container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 11;
+  width: 400px;
+  height: 100vh;
+  background-color: $c1st;
+}
+
+.close {
+  position: absolute;
+  top: 320px;
+  left: -55px;
+  width: 80px;
+  height: 30px;
+  border-radius: 8px 8px 0px 0px;
+  background: url(/images/arrow.png) no-repeat $c4th center;
+  background-size: 18px;
+  transform: rotate(-90deg);
+
+  &:active {
+    filter: brightness(110%);
+  }
+}
+
+.header {
+  text-align: center;
+
+  &__time {
+    padding: 5px 0;
+    color: #fff;
+    background-color: $c2nd;
+  }
+
+  &__title {
+    @include disFlex;
+    padding: 10px 0;
+
+    &__text {
+      h2 {
+        margin-bottom: 10px;
+        font-size: $fz-m;
+        letter-spacing: 5px;
+      }
+
+      h1 {
+        font-size: 40px;
+        font-weight: 500;
+        line-height: 1;
+      }
+
+      h3 {
+        text-indent: 3px;
+        letter-spacing: 3px;
+        font-size: $fz-s;
+        font-weight: 200;
+      }
+    }
+
+    &__logo {
+      width: 120px;
+      padding-left: 10px;
+    }
+  }
+
+  &__select {
+    @include disFlex($jc: space-between);
+    padding: 0 20px;
+    margin-bottom: 10px;
+
+    &__area {
+      width: 150px;
+    }
+
+    &__zone {
+      width: 200px;
+    }
+  }
+
+  &__search {
+    @include disFlex;
+    padding: 0 20px;
+
+    input::placeholder {
+      font-size: $fz-m;
+      color: #cecfd9;
+    }
+
+    &__input {
+      width: 90%;
+      height: 50px;
+      padding-left: 20px;
+      font-size: $fz-m;
+      border: none;
+      outline: none;
+      border-radius: 12px 0 0px 12px;
+    }
+
+    &__btn {
+      width: 50px;
+      height: 50px;
+      border: none;
+      border-radius: 0px 12px 12px 0px;
+      background: url("/images/search.png") no-repeat;
+      background-color: $c2nd;
+      background-position: center;
+      background-size: 25px;
+
+      &:active {
+        filter: brightness(150%);
+      }
+    }
+  }
+}
+
+.select {
+  padding: 10px 20px;
+  color: #fff;
+  background-color: $c2nd;
+  font-size: $fz-s * 1.5;
+  text-align: left;
+  border-radius: 50px;
+  appearance: none;
+  background: url("/images/arrow.png") no-repeat $c2nd;
+  background-position: top 50% right 10px;
+  background-size: 18px 10px;
+}

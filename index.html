@@ -35,9 +35,48 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
     <!-- Moment.JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
+    <!-- Animate CSS -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <title>雙北公廁地圖｜你的膀胱救星</title>
   </head>
   <body>
+    <div class="container">
+      <header class="header">
+        <div class="header__time">2022-08-08 14:00:07 AM</div>
+        <div class="header__title animate__animated animate__backInDown">
+          <div class="header__title__text">
+            <h2>\ 你的膀胱救星 /</h2>
+            <h1>雙北公廁地圖</h1>
+            <h3>TAIPEI RESTROOM MAP</h3>
+          </div>
+          <div class="header__title__logo">
+            <img class="animate__animated animate__bounce animate__infinite animate__slow animate__delay-1s" src="images/logo.png" alt="">
+          </div>
+        </div>
+        <div class="header__select">
+          <select class="header__select__area select" id="">
+            <option value="新北市">新北市</option>
+            <option value="臺北市">臺北市</option>
+          </select>
+          <select class="header__select__zone select" id="">
+            <option value="請選擇區域">請選擇區域</option>
+          </select>
+        </div>
+        <div class="header__search">
+          <input class="header__search__input" type="text" placeholder="請輸入區域">
+          <button class="header__search__btn"></button>
+        </div>
+      </header>
+      <main>
+
+      </main>
+      <footer>
+        
+      </footer>
+      <div class="close"></div>
+    </div>
     <div id="map"></div>
     <!-- JS -->
     <script src="js/jquery-3.6.0.min.js"></script>
