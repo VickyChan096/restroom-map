@@ -1,0 +1,17 @@
+@mixin disFlex($jc: center, $ai: center) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+}
+
+@mixin pad {
+    @media only screen and (max-width: 992px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media only screen and (max-width: 767px) {
+        @content;
+    }
+}
