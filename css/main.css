@@ -137,7 +137,6 @@ table {
 *::after {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  outline: 1px solid #aaa;
 }
 
 body {
@@ -217,6 +216,13 @@ body {
 
 /* marker樣式 end */
 .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   position: absolute;
   right: 0;
   top: 0;
@@ -224,12 +230,14 @@ body {
   width: 400px;
   height: 100vh;
   background-color: #fee101;
+  overflow: hidden;
 }
 
 .close {
   position: absolute;
-  top: 320px;
-  left: -55px;
+  top: 310px;
+  z-index: 10;
+  right: 375px;
   width: 80px;
   height: 30px;
   border-radius: 8px 8px 0px 0px;
@@ -245,6 +253,7 @@ body {
 }
 
 .header {
+  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -385,5 +394,101 @@ body {
   background: url("/images/arrow.png") no-repeat #122b88;
   background-position: top 50% right 10px;
   background-size: 18px 10px;
+  outline: none;
+}
+
+.main {
+  padding: 0 20px;
+  overflow-y: scroll;
+}
+
+.card {
+  width: 100%;
+  border-radius: 12px;
+  background-color: #2d7aff;
+}
+
+.card__name {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px 0;
+}
+
+.card__name h3 {
+  z-index: 21;
+  font-size: 24px;
+  color: #fff;
+}
+
+.card__name img {
+  padding-right: 10px;
+  width: 40px;
+}
+
+.card__content {
+  z-index: 11;
+  position: relative;
+  padding: 25px 0 20px 0;
+  background-color: #fff;
+  text-align: center;
+}
+
+.card__content__arrow {
+  position: absolute;
+  top: -25px;
+  left: calc(50% - 15px);
+  width: 30px;
+  height: 30px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  background-color: #2d7aff;
+}
+
+.card__content__add {
+  font-size: 18px;
+}
+
+.card__info {
+  padding: 5px 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #fff;
+  line-height: 1.8;
+}
+
+.card__info h4 {
+  color: #a4c0ff;
+  border-bottom: 1px solid #a4c0ff;
+}
+
+.btn {
+  display: inline-block;
+  padding: 5px 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 8px;
+  background-color: #ffa415;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  -webkit-filter: brightness(110%);
+          filter: brightness(110%);
+}
+
+footer {
+  padding: 10px 0;
+  text-align: center;
 }
 /*# sourceMappingURL=main.css.map */

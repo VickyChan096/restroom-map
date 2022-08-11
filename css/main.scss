@@ -61,6 +61,8 @@ body {
 /* marker樣式 end */
 
 .container {
+  display: flex;
+  flex-direction:column;
   position: absolute;
   right: 0;
   top: 0;
@@ -68,12 +70,14 @@ body {
   width: 400px;
   height: 100vh;
   background-color: $c1st;
+  overflow: hidden;
 }
 
 .close {
   position: absolute;
-  top: 320px;
-  left: -55px;
+  top: 310px;
+  z-index: 10;
+  right: 375px;
   width: 80px;
   height: 30px;
   border-radius: 8px 8px 0px 0px;
@@ -87,6 +91,7 @@ body {
 }
 
 .header {
+  margin-bottom: 20px;
   text-align: center;
 
   &__time {
@@ -187,4 +192,89 @@ body {
   background: url("/images/arrow.png") no-repeat $c2nd;
   background-position: top 50% right 10px;
   background-size: 18px 10px;
+  outline: none;
+}
+
+.main {
+  padding: 0 20px;
+  overflow-y: scroll;
+}
+
+.card {
+  width: 100%;
+  border-radius: 12px;
+  background-color: $c3rd;
+
+  &__name {
+    @include disFlex;
+    padding: 15px 0;
+
+    h3 {
+      z-index: 21;
+      font-size: $fz-s * 1.5;
+      color: #fff;
+
+    }
+
+    img {
+      padding-right: 10px;
+      width: 40px;
+    }
+  }
+
+  &__content {
+    z-index: 11;
+    position: relative;
+    padding: 25px 0 20px 0;
+    background-color: #fff;
+    text-align: center;
+
+    &__arrow {
+      position: absolute;
+      top: -25px;
+      left: calc(50% - 15px);
+      width: 30px;
+      height: 30px;
+      transform: rotate(45deg);
+      background-color: $c3rd;
+    }
+
+    &__add {
+      font-size: $fz-m;
+    }
+  }
+
+  &__info {
+    padding: 5px 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #fff;
+    line-height: 1.8;
+
+    h4 {
+      color: #a4c0ff;
+      border-bottom: 1px solid #a4c0ff;
+    }
+  }
+}
+
+.btn {
+  display: inline-block;
+  padding: 5px 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 8px;
+  background-color: $c4th;
+  font-size: $fz-m;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+  &:hover{
+    filter: brightness(110%);
+  }
+}
+
+footer {
+  padding: 10px 0;
+  text-align: center;
 }
