@@ -241,7 +241,7 @@ body {
   width: 80px;
   height: 30px;
   border-radius: 8px 8px 0px 0px;
-  background: url(/images/arrow.png) no-repeat #ffa415 center;
+  background: url("../images/arrow.png") no-repeat #ffa415 center;
   background-size: 18px;
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
@@ -297,6 +297,7 @@ body {
 
 .header__title__logo {
   width: 120px;
+  margin-top: 5px;
   padding-left: 10px;
 }
 
@@ -370,7 +371,7 @@ body {
   height: 50px;
   border: none;
   border-radius: 0px 12px 12px 0px;
-  background: url("/images/search.png") no-repeat;
+  background: url("../images/search.png") no-repeat;
   background-color: #122b88;
   background-position: center;
   background-size: 25px;
@@ -391,7 +392,7 @@ body {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  background: url("/images/arrow.png") no-repeat #122b88;
+  background: url("../images/arrow.png") no-repeat #122b88;
   background-position: top 50% right 10px;
   background-size: 18px 10px;
   outline: none;
