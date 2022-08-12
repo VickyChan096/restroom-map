@@ -9,7 +9,7 @@ sideBtn.addEventListener('click', closeInfo);
 let map = L.map('map', {
   //L是Leaflet框架的名字，有可能會與其他框架衝突
   //map函式('設定在#map',{先定位在center這個座標,zoom定位在16})
-  center: [23.8709698591555, 121.507785916328],
+  center: [22.89493065, 120.5413538],
   zoom: 16,
   zoomControl: false,
 });
@@ -61,7 +61,7 @@ initData();
 function initData() {
   let allPromise = [];
 
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < 9; i++) {
     let offset = i * 1000;
     allPromise.push(getData(offset));
   }
@@ -90,7 +90,7 @@ function initData() {
             </div>
           </div>
           <div class="card__info">
-            <h4>${allData[i].administration}</h4>
+            <h4>${allData[i].type2}</h4>
             <h5>${allData[i].type}</h5>
           </div>
         </li>
@@ -115,7 +115,7 @@ function getData(offset) {
   //這邊用promise , 資料取得後resolve回傳
   const promise = new Promise((resolve, reject) => {
     let url =
-      'https://data.epa.gov.tw/api/v2/fac_p_10?api_key=e8dd42e6-9b8b-43f8-991e-b3dee723a52d&limit=1000&sort=ImportDate%20desc&format=json' +
+      'https://data.epa.gov.tw/api/v2/fac_p_17?api_key=e8dd42e6-9b8b-43f8-991e-b3dee723a52d&limit=1000&sort=ImportDate%20desc&offset=' +
       offset +
       '&format=json';
 
