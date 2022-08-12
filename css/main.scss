@@ -6,6 +6,7 @@ html,
 body {
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 #map {
@@ -77,13 +78,14 @@ body {
     filter: brightness(110%);
   }
 }
+
 .sideBtnHide {
   right: -25px;
 }
 
 .container {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   justify-content: space-between;
   position: absolute;
   right: 0;
@@ -95,7 +97,8 @@ body {
   overflow: hidden;
   transition: all 0.5s;
 }
-.containerHide{
+
+.containerHide {
   right: -300px;
 }
 
@@ -207,7 +210,7 @@ body {
 .main {
   padding: 0 20px;
   overflow-y: scroll;
-  
+
 }
 
 .card {
@@ -278,7 +281,8 @@ body {
   color: #fff;
   cursor: pointer;
   transition: all 0.2s;
-  &:hover{
+
+  &:hover {
     filter: brightness(110%);
   }
 }
