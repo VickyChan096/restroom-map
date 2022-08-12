@@ -255,7 +255,7 @@ body {
   left: 0;
   top: 0;
   z-index: 11;
-  max-width: 300px;
+  width: 300px;
   height: 100vh;
   background-color: #fee101;
   overflow: hidden;
@@ -495,6 +495,7 @@ body {
   margin-bottom: 20px;
   text-align: center;
   color: #fff;
+  font-size: 12.8px;
 }
 
 .card__info h4 {

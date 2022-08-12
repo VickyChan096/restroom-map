@@ -9,7 +9,7 @@ sideBtn.addEventListener('click', closeInfo);
 let map = L.map('map', {
   //L是Leaflet框架的名字，有可能會與其他框架衝突
   //map函式('設定在#map',{先定位在center這個座標,zoom定位在16})
-  center: [25.00144398527068, 121.51330907919525],
+  center: [23.8709698591555, 121.507785916328],
   zoom: 16,
   zoomControl: false,
 });
@@ -21,57 +21,26 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 }).addTo(map);
 
-L.control.zoom({ 
-  position: 'topright' 
-}).addTo(map);
+L.control
+  .zoom({
+    //zoom按鈕置右
+    position: 'topright',
+  })
+  .addTo(map);
 
-// let greenIcon = new L.Icon({
-//   //製作綠色icon
-//   iconUrl:
-//     'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
-//   shadowUrl:
-//     'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-//   iconSize: [25, 41],
-//   iconAnchor: [12, 41],
-//   popupAnchor: [1, -34],
-//   shadowSize: [41, 41],
-// });
+let greenIcon = new L.Icon({
+  //製作綠色icon
+  iconUrl:
+    'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
+  shadowUrl:
+    'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  shadowSize: [41, 41],
+});
 
 let markers = new L.MarkerClusterGroup().addTo(map); //新增一個marker圖層，專門用來放群組
-
-let xhr = new XMLHttpRequest();
-//開啟網路請求
-xhr.open(
-  'get',
-  'https://raw.githubusercontent.com/kiang/pharmacies/master/json/points.json',
-  true
-);
-xhr.send(null);
-xhr.onload = function () {
-  let data = JSON.parse(xhr.responseText).features;
-  for (let i = 0; data.length > i; i++) {
-    let iconColor;
-    if (data[i].properties.mask_adult === 0) {
-      iconColor = redIcon;
-    } else {
-      iconColor = greenIcon;
-    }
-    markers.addLayer(
-      L.marker(
-        [data[i].geometry.coordinates[1], data[i].geometry.coordinates[0]],
-        { icon: iconColor }
-      ).bindPopup(
-        '<h1>' +
-          data[i].properties.name +
-          '</h1>' +
-          '<p>成人口罩數量' +
-          data[i].properties.mask_adult +
-          '</p>'
-      )
-    );
-  }
-  map.addLayer(markers);
-};
 
 let date = new Date();
 //現在日期
@@ -85,6 +54,85 @@ function thisDate() {
 function thisTime() {
   document.getElementById('thisTime').textContent = moment().format('LTS');
   setTimeout('thisTime()', 1000); //每秒呼叫一次功能
+}
+
+initData();
+
+function initData() {
+  let allPromise = [];
+
+  for (let i = 0; i < 2; i++) {
+    let offset = i * 1000;
+    allPromise.push(getData(offset));
+  }
+  //Promise.all  可以等待全部Promise回來之後才動作
+  Promise.all(allPromise).then((result) => {
+    //result 是一個array是每一次的資料
+    let allData = []; //用來裝全部資料
+    result.forEach((item) => {
+      allData = allData.concat(item);
+    });
+    let list = document.querySelector('.main__card');
+    let str = '';
+    for (i = 0; i < allData.length; i++) {
+      let content = `
+        <li class="card">
+          <div class="card__name">
+            <img src="images/location.png">
+            <h3>${allData[i].name}</h3>
+          </div>
+          <div class="card__content">
+            <div class="card__content__arrow"></div>
+            <p class="card__content__add">${allData[i].address}</p>
+            <div class="card__content__btn">
+              <a class="btn">查看位置</a>
+              <a class="btn">複製地址</a>
+            </div>
+          </div>
+          <div class="card__info">
+            <h4>${allData[i].administration}</h4>
+            <h5>${allData[i].type}</h5>
+          </div>
+        </li>
+      `;
+      str += content;
+    }
+    list.innerHTML = str;
+    
+    //地圖設點
+    for (let i = 0; allData.length > i; i++) {
+      markers.addLayer(
+        L.marker([allData[i].latitude, allData[i].longitude], {
+          icon: greenIcon,
+        }).bindPopup('<h1>' + allData[i].name + '</h1>')
+      );
+    }
+    map.addLayer(markers);
+  });
+}
+
+function getData(offset) {
+  //這邊用promise , 資料取得後resolve回傳
+  const promise = new Promise((resolve, reject) => {
+    let url =
+      'https://data.epa.gov.tw/api/v2/fac_p_10?api_key=e8dd42e6-9b8b-43f8-991e-b3dee723a52d&limit=1000&sort=ImportDate%20desc&format=json' +
+      offset +
+      '&format=json';
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('get', url, true);
+    xhr.send(null);
+    xhr.onload = function () {
+      if (xhr.status == 200) {
+        let data = JSON.parse(xhr.responseText).records;
+        resolve(data);
+      } else {
+        reject();
+      }
+    };
+  });
+
+  return promise;
 }
 
 // //選擇城市
