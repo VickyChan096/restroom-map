@@ -219,7 +219,7 @@ body {
   position: absolute;
   top: 250px;
   z-index: 10;
-  right: 270px;
+  right: 275px;
   width: 80px;
   height: 30px;
   border-radius: 8px 8px 0px 0px;
@@ -227,11 +227,17 @@ body {
   background-size: 18px;
   -webkit-transform: rotate(-90deg);
           transform: rotate(-90deg);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 
 .close:active {
   -webkit-filter: brightness(110%);
           filter: brightness(110%);
+}
+
+.btnHide {
+  right: -25px;
 }
 
 .container {
@@ -253,6 +259,12 @@ body {
   height: 100vh;
   background-color: #fee101;
   overflow: hidden;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.containerHide {
+  right: -300px;
 }
 
 .header {

@@ -64,17 +64,21 @@ body {
   position: absolute;
   top: 250px;
   z-index: 10;
-  right: 270px;
+  right: 275px;
   width: 80px;
   height: 30px;
   border-radius: 8px 8px 0px 0px;
   background: url("../images/arrow.png") no-repeat $c4th center;
   background-size: 18px;
   transform: rotate(-90deg);
+  transition: all 0.5s;
 
   &:active {
     filter: brightness(110%);
   }
+}
+.btnHide {
+  right: -25px;
 }
 
 .container {
@@ -89,6 +93,10 @@ body {
   height: 100vh;
   background-color: $c1st;
   overflow: hidden;
+  transition: all 0.5s;
+}
+.containerHide{
+  right: -300px;
 }
 
 .header {

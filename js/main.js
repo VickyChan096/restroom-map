@@ -1,3 +1,11 @@
+function closeInfo(){
+  const sideBtn = document.getElementById('sideBtn');
+  const info = document.querySelector('.container');
+  info.classList.toggle('containerHide');
+  sideBtn.classList.toggle('btnHide');
+}
+sideBtn.addEventListener('click',closeInfo);
+
 let map = L.map('map', {
   //L是Leaflet框架的名字，有可能會與其他框架衝突
   //map函式('設定在#map',{先定位在center這個座標,zoom定位在16})
