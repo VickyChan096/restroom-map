@@ -6,7 +6,7 @@ html,
 body {
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 #map {
@@ -65,13 +65,13 @@ body {
   position: absolute;
   top: 263px;
   z-index: 10;
-  right: 275px;
+  left: 275px;
   width: 80px;
   height: 30px;
   border-radius: 8px 8px 0px 0px;
   background: url("../images/arrow.png") no-repeat $c4th center;
   background-size: 18px;
-  transform: rotate(-90deg);
+  transform: rotate(90deg);
   transition: all 0.5s;
 
   &:active {
@@ -80,7 +80,7 @@ body {
 }
 
 .sideBtnHide {
-  right: -25px;
+  left: -30px;
 }
 
 .container {
@@ -88,7 +88,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
-  right: 0;
+  left: 0;
   top: 0;
   z-index: 11;
   max-width: 300px;
@@ -99,7 +99,7 @@ body {
 }
 
 .containerHide {
-  right: -300px;
+  left: -300px;
 }
 
 .header {
@@ -111,6 +111,10 @@ body {
     font-size: $fz-s * 0.8;
     color: #fff;
     background-color: $c2nd;
+    p{
+      display: inline-block;
+      padding: 0 5px;
+    }
   }
 
   &__title {
@@ -139,7 +143,7 @@ body {
 
     &__logo {
       width: 90px;
-      padding-left: 3px;
+      padding-right: 3px;
     }
   }
 
@@ -209,8 +213,20 @@ body {
 
 .main {
   padding: 0 20px;
-  overflow-y: scroll;
+  overflow-y: auto;
+}
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: $c1st;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 3px;
 }
 
 .card {
@@ -274,8 +290,8 @@ body {
 .btn {
   display: inline-block;
   padding: 6px 18px;
-  margin-left: 5px;
-  margin-right: 5px;
+  margin-left: 3px;
+  margin-right: 3px;
   border-radius: 8px;
   background-color: $c4th;
   color: #fff;
@@ -292,3 +308,4 @@ footer {
   font-size: $fz-s * 0.8;
   text-align: center;
 }
+

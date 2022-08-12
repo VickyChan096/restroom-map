@@ -41,19 +41,28 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <title>雙北公廁地圖｜你的膀胱救星</title>
   </head>
+  <style>
+    /* .leaflet-left{
+      left: auto;
+      right: 0px;
+    } */
+  </style>
   <body>
     <div class="sideBtn" id="sideBtn"></div>
     <div class="container">
       <header class="header">
-        <div class="header__time">2022-08-08 14:00:07 AM</div>
+        <div class="header__time">
+          <p class="header__time__date" id="thisDate"></p>
+          <p class="header__time__time" id="thisTime"></p>
+        </div>
         <div class="header__title animate__animated animate__backInDown animate__slow">
+          <div class="header__title__logo">
+            <img class="animate__animated animate__bounce animate__infinite animate__slow animate__delay-2s" src="images/logo.png" alt="">
+          </div>
           <div class="header__title__text">
             <h2>\ 你的膀胱救星 /</h2>
             <h1>雙北公廁地圖</h1>
             <h3>TAIPEI RESTROOM MAP</h3>
-          </div>
-          <div class="header__title__logo">
-            <img class="animate__animated animate__bounce animate__infinite animate__slow animate__delay-2s" src="images/logo.png" alt="">
           </div>
         </div>
         <div class="header__select">

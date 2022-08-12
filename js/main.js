@@ -1,16 +1,17 @@
-function closeInfo(){
+function closeInfo() {
   const sideBtn = document.getElementById('sideBtn');
   const container = document.querySelector('.container');
   container.classList.toggle('containerHide');
   sideBtn.classList.toggle('sideBtnHide');
 }
-sideBtn.addEventListener('click',closeInfo);
+sideBtn.addEventListener('click', closeInfo);
 
 let map = L.map('map', {
   //L是Leaflet框架的名字，有可能會與其他框架衝突
   //map函式('設定在#map',{先定位在center這個座標,zoom定位在16})
   center: [25.00144398527068, 121.51330907919525],
   zoom: 16,
+  zoomControl: false,
 });
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -18,6 +19,10 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
   attribution:
     //右下角資訊
     '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+}).addTo(map);
+
+L.control.zoom({ 
+  position: 'topright' 
 }).addTo(map);
 
 // let greenIcon = new L.Icon({
@@ -68,49 +73,19 @@ xhr.onload = function () {
   map.addLayer(markers);
 };
 
-// let date = new Date();
-// let day = date.getDay();
+let date = new Date();
+//現在日期
+function thisDate() {
+  let thisDate = document.getElementById('thisDate');
+  thisDate.textContent =
+    date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+}
 
-// //星期轉成中文
-// function changeChinese(day) {
-//   let today = document.querySelector('.today span');
-//   switch (day) {
-//     case 1:
-//       today.textContent = '一';
-//       break;
-//     case 2:
-//       today.textContent = '二';
-//       break;
-//     case 3:
-//       today.textContent = '三';
-//       break;
-//     case 4:
-//       today.textContent = '四';
-//       break;
-//     case 5:
-//       today.textContent = '五';
-//       break;
-//     case 6:
-//       today.textContent = '六';
-//       break;
-//     case 7:
-//       today.textContent = '日';
-//       break;
-//   }
-// }
-
-// //今日日期
-// function thisDate() {
-//   let thisDate = document.getElementById('thisDate');
-//   thisDate.textContent =
-//     date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
-// }
-
-// //現在時間
-// function currentTime() {
-//   document.getElementById('currentTime').textContent = moment().format('LTS');
-//   setTimeout('currentTime()', 1000); //每秒呼叫一次功能
-// }
+//現在時間
+function thisTime() {
+  document.getElementById('thisTime').textContent = moment().format('LTS');
+  setTimeout('thisTime()', 1000); //每秒呼叫一次功能
+}
 
 // //選擇城市
 // function selectCountry(e) {
@@ -217,14 +192,13 @@ xhr.onload = function () {
 // }
 // town.addEventListener('change', selectTown);
 
-// //預設執行
-// function init() {
-//   changeChinese(day);
-//   thisDate();
-//   canBuy();
-//   currentTime();
-// }
-// init();
+//預設執行
+function init() {
+  thisDate();
+  thisTime();
+  // canBuy();
+}
+init();
 
 // //單一marker，設定它的座標
 // L.marker([25.00144398527068, 121.51330907919525], { icon: greenIcon })
