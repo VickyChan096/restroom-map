@@ -60,9 +60,9 @@ body {
 
 /* marker樣式 end */
 
-.close {
+.sideBtn {
   position: absolute;
-  top: 250px;
+  top: 263px;
   z-index: 10;
   right: 275px;
   width: 80px;
@@ -77,7 +77,7 @@ body {
     filter: brightness(110%);
   }
 }
-.btnHide {
+.sideBtnHide {
   right: -25px;
 }
 

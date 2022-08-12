@@ -1,8 +1,8 @@
 function closeInfo(){
   const sideBtn = document.getElementById('sideBtn');
-  const info = document.querySelector('.container');
-  info.classList.toggle('containerHide');
-  sideBtn.classList.toggle('btnHide');
+  const container = document.querySelector('.container');
+  container.classList.toggle('containerHide');
+  sideBtn.classList.toggle('sideBtnHide');
 }
 sideBtn.addEventListener('click',closeInfo);
 
