@@ -229,6 +229,7 @@ body {
           transform: rotate(90deg);
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
+  cursor: pointer;
 }
 
 .sideBtn:active {
@@ -334,14 +335,6 @@ body {
   margin-bottom: 10px;
 }
 
-.header__select__area {
-  width: 120px;
-}
-
-.header__select__zone {
-  width: 150px;
-}
-
 .header__search {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -394,6 +387,7 @@ body {
   background-color: #122b88;
   background-position: center;
   background-size: 20px;
+  cursor: pointer;
 }
 
 .header__search__btn:active {
@@ -402,6 +396,7 @@ body {
 }
 
 .select {
+  width: 135px;
   padding: 8px 20px;
   color: #fff;
   background-color: #122b88;
@@ -451,13 +446,13 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 10px 5px;
+  padding: 10px 10px;
 }
 
 .card__name h3 {
   z-index: 21;
   line-height: 1.2;
-  font-size: 18px;
+  font-size: 16px;
   color: #fff;
 }
 
@@ -498,7 +493,7 @@ body {
   font-size: 12.8px;
 }
 
-.card__info h4 {
+.card__info h5 {
   color: #a4c0ff;
   border-bottom: 1px solid #a4c0ff;
 }
@@ -525,5 +520,63 @@ footer {
   padding: 5px 0;
   font-size: 12.8px;
   text-align: center;
+}
+
+.red {
+  background-color: #c92135;
+}
+
+.blue {
+  background-color: #2d7aff;
+}
+
+.yellow {
+  background-color: #ffd425;
+}
+
+.popBox {
+  line-height: 1;
+}
+
+.popBox__title__type2 {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  border-radius: 0 4px 4px 0;
+  color: #fff;
+}
+
+.popBox__title__name {
+  margin-bottom: 5px;
+  font-size: 20px;
+  border-bottom: 1px solid #000;
+}
+
+.popBox__add {
+  padding: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.popBox__btn {
+  position: relative;
+  left: calc(50% - 50px);
+  display: inline-block;
+  margin: 0 auto;
+  padding: 6px 18px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.5;
+  border-radius: 8px;
+  color: #fff;
+  background-color: #ffa415;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.popBox__btn:hover {
+  -webkit-filter: brightness(110%);
+          filter: brightness(110%);
 }
 /*# sourceMappingURL=main.css.map */

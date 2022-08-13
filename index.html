@@ -41,15 +41,9 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <title>桃園公廁地圖｜你的膀胱救星</title>
   </head>
-  <style>
-    /* .leaflet-left{
-      left: auto;
-      right: 0px;
-    } */
-  </style>
   <body>
     <div class="sideBtn" id="sideBtn"></div>
-    <div class="container">
+    <div class="container" id="container">
       <header class="header">
         <div class="header__time">
           <p class="header__time__date" id="thisDate"></p>
@@ -66,39 +60,38 @@
           </div>
         </div>
         <div class="header__select">
-          <select class="header__select__area select" id="">
-            <option value="新北市">新北市</option>
-            <option value="臺北市">臺北市</option>
-          </select>
           <select class="header__select__zone select" id="">
-            <option value="請選擇區域">請選擇區域</option>
+            <option value="">選擇區域</option>
+          </select>
+          <select class="header__select__type select" id="">
+            <option value="">廁所類型</option>
           </select>
         </div>
         <div class="header__search">
-          <input class="header__search__input" type="text" placeholder="請輸入區域">
+          <input class="header__search__input" type="text" placeholder="請輸入關鍵字">
           <button class="header__search__btn"></button>
         </div>
       </header>
       <main class="main">
         <ul class="main__card">
-          <!-- <div class="card">
+          <!-- <li class="card">
             <div class="card__name">
               <img src="images/location.png">
-              <h3>家樂福重新店B1-女廁B1-女廁1-女廁2</h3>
+              <h3>市立圖書館埔心分館1F男廁</h3>
             </div>
             <div class="card__content">
               <div class="card__content__arrow"></div>
-              <p class="card__content__add">北縣三重市重新路五段654號B2縣三重市重新路五段65</p>
+              <p class="card__content__add">楊梅區中興路145號</p>
               <div class="card__content__btn">
                 <a class="btn">查看位置</a>
                 <a class="btn">複製地址</a>
               </div>
             </div>
             <div class="card__info">
-              <h4>台灣麥當勞餐廳股份有限公司</h4>
-              <h5>寺廟教堂等宗教活動場所</h5>
+              <h5>縣市政府</h5>
+              <p>各級社教機關</p>
             </div>
-          </div> -->
+          </li> -->
         </ul>
       </main>
       <footer>
