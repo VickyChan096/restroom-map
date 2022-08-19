@@ -9,57 +9,69 @@ body {
   // overflow: hidden;
 }
 
+.loading {
+  z-index: 31;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  // display: none;
+}
+
+.showLoading {
+  display: flex;
+}
+
 #map {
   z-index: 1;
   width: 100%;
   height: 100%;
 }
 
-/* marker樣式 start */
+/* marker群組樣式 */
 .marker-cluster-small {
-  background-color: rgba(181, 226, 140, 0.6);
-}
+  background-color: rgba(117, 217, 156, 0.5);
 
-.marker-cluster-small div {
-  background-color: rgba(110, 204, 57, 0.6);
+  & div {
+    background-color: rgba(117, 217, 156, 0.8);
+  }
 }
 
 .marker-cluster-medium {
-  background-color: rgba(241, 211, 87, 0.6);
-}
+  background-color: rgba(49, 158, 90, 0.5);
 
-.marker-cluster-medium div {
-  background-color: rgba(240, 194, 12, 0.6);
+  div {
+    background-color: rgba(49, 158, 90, 0.8);
+  }
 }
 
 .marker-cluster-large {
-  background-color: rgba(253, 156, 115, 0.6);
-}
+  background-color: rgba(0, 90, 34, 0.5);
 
-.marker-cluster-large div {
-  background-color: rgba(241, 128, 23, 0.6);
+  div {
+    background-color: rgba(0, 90, 34, 0.7);
+  }
 }
 
 .marker-cluster {
   background-clip: padding-box;
   border-radius: 20px;
-}
 
-.marker-cluster div {
-  width: 30px;
-  height: 30px;
-  margin-left: 5px;
-  margin-top: 5px;
-  text-align: center;
-  border-radius: 15px;
-  font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
-}
+  div {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    margin-top: 5px;
+    text-align: center;
+    border-radius: 15px;
+    color: #fff;
+    font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+  }
 
-.marker-cluster span {
-  line-height: 30px;
+  span {
+    line-height: 30px;
+  }
 }
-
-/* marker樣式 end */
 
 .sideBtn {
   position: absolute;
@@ -112,7 +124,8 @@ body {
     font-size: $fz-s * 0.8;
     color: #fff;
     background-color: $c2nd;
-    p{
+
+    p {
       display: inline-block;
       padding: 0 5px;
     }
@@ -136,15 +149,15 @@ body {
 
       h3 {
         text-indent: 3px;
-        letter-spacing: 1.5px;
+        letter-spacing: 2.3px;
         font-size: $fz-s * 0.8;
         font-weight: 200;
       }
     }
 
     &__logo {
-      width: 90px;
-      padding-right: 3px;
+      width: 75px;
+      padding-right: 10px;
     }
   }
 
@@ -277,8 +290,9 @@ body {
     font-size: $fz-s * 0.8;
 
     h5 {
+      padding-top: 2px;
       color: #a4c0ff;
-      border-bottom: 1px solid #a4c0ff;
+      border-top: 1px solid #a4c0ff;
     }
   }
 }
@@ -313,12 +327,14 @@ footer {
   background-color: #2d7aff;
 }
 
-.yellow {
+.gold {
   background-color: #ffd425;
 }
 
 .popBox {
-  line-height: 1;
+  a {
+    color: #fff !important;
+  }
 
   &__title {
     &__type2 {
@@ -330,14 +346,14 @@ footer {
     }
 
     &__name {
-      margin-bottom: 5px;
+      padding-bottom: 5px;
       font-size: 20px;
       border-bottom: 1px solid #000;
     }
   }
 
   &__add {
-    padding: 10px;
+    padding: 5px;
     font-size: 16px;
     text-align: center;
   }
@@ -361,4 +377,8 @@ footer {
       filter: brightness(110%);
     }
   }
+}
+
+.leaflet-tile-pane {
+  filter: grayscale(0.5) contrast(1) brightness(1);
 }

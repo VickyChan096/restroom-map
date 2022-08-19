@@ -7,8 +7,8 @@
     <!-- toTop Icon -->
     <script
       src="https://kit.fontawesome.com/41b7cdd317.js"
-      crossorigin="anonymous"
-    ></script>
+      crossorigin="anonymous">
+    </script>
     <!-- CSS -->
     <link rel="stylesheet" href="css/main.css" />
     <!-- 標題欄icon -->
@@ -20,19 +20,19 @@
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
       integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-      crossorigin=""
-    />
-    <!-- marker插件CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css"></link>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css"></link> 
+      crossorigin=""/>
+    <!-- Leaflet marker插件CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/MarkerCluster.Default.css">
     <!-- Leaflet框架JS -->
     <script
       src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
       integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-      crossorigin=""
-    ></script>
-    <!-- marker插件JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js"></script>
+      crossorigin="">
+    </script>
+    <!-- Leaflet marker插件JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.4.1/leaflet.markercluster.js">
+    </script>
     <!-- Moment.JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.js"></script>
     <!-- Animate CSS -->
@@ -51,20 +51,21 @@
         </div>
         <div class="header__title animate__animated animate__backInDown animate__slow">
           <div class="header__title__logo">
-            <img class="animate__animated animate__bounce animate__infinite animate__slow animate__delay-2s" src="images/logo.png" alt="">
+            <img class="animate__animated animate__heartBeat animate__infinite animate__slow animate__delay-2s" src="images/logo.png" alt="公廁地圖">
           </div>
           <div class="header__title__text">
             <h2>\ 你的膀胱救星 /</h2>
             <h1>桃園公廁地圖</h1>
-            <h3>Kaohsiung Restroom Map</h3>
+            <h3>Taoyuan Restroom Map</h3>
           </div>
         </div>
         <div class="header__select">
-          <select class="header__select__zone select" id="">
-            <option value="">選擇區域</option>
-          </select>
-          <select class="header__select__type select" id="">
-            <option value="">廁所類型</option>
+          <select class="header__select__city select" id="selectCity"></select>
+          <select class="header__select__type select" id="selectType2">
+            <option value="廁所類型">廁所類型</option>
+            <option value="男廁所">男廁所</option>
+            <option value="女廁所">女廁所</option>
+            <option value="無障礙廁所">無障礙廁所</option>
           </select>
         </div>
         <div class="header__search">
@@ -74,6 +75,7 @@
       </header>
       <main class="main">
         <ul class="main__card">
+          <li class="loading" id="loading"><img src="images/loading.gif"></li>
           <!-- <li class="card">
             <div class="card__name">
               <img src="images/location.png">
@@ -83,8 +85,8 @@
               <div class="card__content__arrow"></div>
               <p class="card__content__add">楊梅區中興路145號</p>
               <div class="card__content__btn">
-                <a class="btn">查看位置</a>
-                <a class="btn">複製地址</a>
+                <a class="btn">地圖位置</a>
+                <a class="btn">前往廁所</a>
               </div>
             </div>
             <div class="card__info">
@@ -94,9 +96,7 @@
           </li> -->
         </ul>
       </main>
-      <footer>
-        <p>Copyright © 2022 Vicky Chan</p>
-      </footer>
+      <footer><p>Copyright © 2022 Vicky Chan</p></footer>
     </div>
     <div id="map"></div>
     <!-- JS -->
