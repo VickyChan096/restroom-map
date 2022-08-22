@@ -49,7 +49,7 @@ function getUserPosition() {
 
       let userIcon = new L.Icon({
         iconUrl:
-          'https://d1s6fstvea5cci.cloudfront.net/content/themes/vtnz/resources/assets/images/pulse_dot.gif',
+          'https://vickychan096.github.io/restroom-map/images/pulse_dot.gif',
         iconSize: [50, 50],
       });
 
