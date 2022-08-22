@@ -143,8 +143,8 @@ function getData() {
 
   // 此open data單次呈現最多一千筆，下一千筆需改網址參數
   // 桃園市列管公廁共3554筆資料
-  for (let i = 0; i < 4; i++) {
-  // for (let i = 0; i < 1; i++) {
+  // for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < 1; i++) {
     let offset = i * 1000;
     allPromise.push(xhrData(offset));
   }
@@ -169,13 +169,13 @@ function getData() {
 function xhrData(offset) {
   const promise = new Promise((resolve, reject) => {
     // 測試版api
-    // let url = 'https://vickychan096.github.io/restroom-map/js/0000.json';
+    let url = 'https://vickychan096.github.io/restroom-map/js/open-data.json';
 
     // 政府版api
-    let url =
-      'https://data.epa.gov.tw/api/v2/fac_p_16?api_key=e8dd42e6-9b8b-43f8-991e-b3dee723a52d&limit=1000&sort=ImportDate%20desc&offset=' +
-      offset +
-      '&format=json';
+    // let url =
+    //   'https://data.epa.gov.tw/api/v2/fac_p_16?api_key=e8dd42e6-9b8b-43f8-991e-b3dee723a52d&limit=1000&sort=ImportDate%20desc&offset=' +
+    //   offset +
+    //   '&format=json';
 
     let xhr = new XMLHttpRequest();
     xhr.open('get', url, true);
